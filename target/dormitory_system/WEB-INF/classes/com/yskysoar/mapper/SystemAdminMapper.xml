@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yskysoar.mapper.SystemAdminMapper">
+
+    <!--在config.xml配置了统一的包名-->
+    <select id="findByUsername" resultType="SystemAdmin">
+        select *
+        from system_admin
+        where username = #{username}
+    </select>
+
+</mapper>

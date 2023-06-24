@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yskysoar.mapper.DormitoryAdminMapper">
+
+    <!--在config.xml配置了统一的包名-->
+    <select id="findByUserName" resultType="DormitoryAdmin">
+        select *
+        from dormitory_admin
+        where username = #{username}
+    </select>
+
+    <!--展示所有寝室管理员-->
+    <select id="list" resultType="DormitoryAdmin">
+        select *
+        from dormitory_admin
+    </select>
+
+    <!--查询指定用户名的寝室管理员(模糊查询)-->
+    <select id="searchByUsername" resultType="DormitoryAdmin">
+        select *
+        from dormitory_admin
+        where username like concat('%', #{value}, '%')
+    </select>
+
+    <!--查询指定姓名的寝室管理员(模糊查询)-->
+    <select id="searchByName" resultType="DormitoryAdmin">
+        select *
+        from dormitory_admin
+        where name like concat('%', #{value}, '%')
+    </select>
+
+    <!--查询指定手机号的寝室管理员(模糊查询)-->
+    <select id="searchByTelephone" resultType="DormitoryAdmin">
+        select *
+        from dormitory_admin
+        where telephone like concat('%', #{value}, '%')
+    </select>
+
+    <!--新增宿管信息-->
+    <insert id="save">
+        insert into dormitory_admin(username, password, name, gender, telephone)
+        values (#{username}, #{password}, #{name}, #{gender}, #{telephone})
+    </insert>
+
+    <!--删除宿管信息-->
+    <delete id="delete">
+        delete
+        from dormitory_admin
+        where id = #{id}
+    </delete>
+
+
+    <update id="update">
+        update dormitory_admin
+        set username  = #{username},
+            password  = #{password},
+            name      = #{name},
+            gender    = #{gender},
+            telephone = #{telephone}
+        where id = #{id}
+    </update>
+
+</mapper>
