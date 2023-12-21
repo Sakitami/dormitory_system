@@ -3,67 +3,67 @@
 <mapper namespace="com.yskysoar.mapper.AbsentMapper">
 
     <select id="list" resultType="Absent">
-        select a.id,
-               b.name        buildingName,
-               d.name        dormitoryName,
-               s.name        studentName,
+        SELECT a.id,
+               b.name        AS buildingName,
+               d.name        AS dormitoryName,
+               s.name        AS studentName,
                a.reason,
-               da.name       dormitoryAdminName,
-               a.create_date createDate
-        from dormitory d,
+               da.name       AS dormitoryAdminName,
+               a.create_date AS createDate
+        FROM dormitory d,
              student s,
              building b,
              absent a,
              dormitory_admin da
-        where d.id = a.dormitory_id
-          and s.id = a.student_id
-          and b.id = a.building_id
-          and da.id = a.dormitory_admin_id
+        WHERE d.id = a.dormitory_id
+          AND s.id = a.student_id
+          AND b.id = a.building_id
+          AND da.id = a.dormitory_admin_id;
     </select>
 
     <select id="searchByBuildingName" resultType="Absent">
-        select a.id,
-               b.name        buildingName,
-               d.name        dormitoryName,
-               s.name        studentName,
+        SELECT a.id,
+               b.name        AS buildingName,
+               d.name        AS dormitoryName,
+               s.name        AS studentName,
                a.reason,
-               da.name       dormitoryAdminName,
-               a.create_date createDate
-        from dormitory d,
+               da.name       AS dormitoryAdminName,
+               a.create_date AS createDate
+        FROM dormitory d,
              student s,
              building b,
              absent a,
              dormitory_admin da
-        where d.id = a.dormitory_id
-          and s.id = a.student_id
-          and b.id = a.building_id
-          and da.id = a.dormitory_admin_id
-          and b.name like concat('%', #{value}, '%')
+        WHERE d.id = a.dormitory_id
+          AND s.id = a.student_id
+          AND b.id = a.building_id
+          AND da.id = a.dormitory_admin_id
+          AND b.name LIKE CONCAT('%', #{value}, '%');
     </select>
 
     <select id="searchByDormitoryName" resultType="Absent">
-        select a.id,
-               b.name        buildingName,
-               d.name        dormitoryName,
-               s.name        studentName,
+        SELECT a.id,
+               b.name        AS buildingName,
+               d.name        AS dormitoryName,
+               s.name        AS studentName,
                a.reason,
-               da.name       dormitoryAdminName,
-               a.create_date createDate
-        from dormitory d,
+               da.name       AS dormitoryAdminName,
+               a.create_date AS createDate
+        FROM dormitory d,
              student s,
              building b,
              absent a,
              dormitory_admin da
-        where d.id = a.dormitory_id
-          and s.id = a.student_id
-          and b.id = a.building_id
-          and da.id = a.dormitory_admin_id
-          and d.name like concat('%', #{value}, '%')
+        WHERE d.id = a.dormitory_id
+          AND s.id = a.student_id
+          AND b.id = a.building_id
+          AND da.id = a.dormitory_admin_id
+          AND d.name LIKE CONCAT('%', #{value}, '%');
     </select>
 
     <insert id="save">
-        insert into absent(building_id, dormitory_id, student_id, dormitory_admin_id, create_date, reason)
-        values (#{buildingId}, #{dormitoryId}, #{studentId}, #{dormitoryAdminId}, #{createDate}, #{reason})
+        INSERT INTO absent (building_id, dormitory_id, student_id, dormitory_admin_id, create_date, reason)
+        VALUES (#{buildingId}, #{dormitoryId}, #{studentId}, #{dormitoryAdminId}, #{createDate}, #{reason});
     </insert>
 
 </mapper>

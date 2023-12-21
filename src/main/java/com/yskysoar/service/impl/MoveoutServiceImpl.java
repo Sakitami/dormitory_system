@@ -21,6 +21,7 @@ public class MoveoutServiceImpl implements MoveoutService {
 
     /**
      * 展示所有的学生列表
+     *
      * @return 所有的学生列表
      */
     @Override
@@ -30,7 +31,8 @@ public class MoveoutServiceImpl implements MoveoutService {
 
     /**
      * 指定信息模糊查询迁出学生
-     * @param key 指定的查询方式(1.学号 2.姓名)
+     *
+     * @param key   指定的查询方式(1.学号 2.姓名)
      * @param value 模糊查询的数据
      * @return 查询的数据集合
      */

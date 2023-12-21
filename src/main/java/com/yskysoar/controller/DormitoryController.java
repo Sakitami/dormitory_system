@@ -36,6 +36,7 @@ public class DormitoryController {
 
     /**
      * 展示所有的寝室列表
+     *
      * @return 视图解析器
      */
     @GetMapping("/list")
@@ -49,7 +50,8 @@ public class DormitoryController {
 
     /**
      * 指定信息模糊查询寝室列表
-     * @param key 指定的查询方式(1.名称 2.介绍)
+     *
+     * @param key   指定的查询方式(1.名称 2.介绍)
      * @param value 模糊查询的数据
      * @return 视图解析器
      */
@@ -64,6 +66,7 @@ public class DormitoryController {
 
     /**
      * 添加寝室
+     *
      * @param dormitory 寝室信息
      * @return 重定向到list方法
      */
@@ -75,6 +78,7 @@ public class DormitoryController {
 
     /**
      * 更新寝室信息
+     *
      * @param dormitory 待更新寝室信息
      * @return 重定向到list方法
      */
@@ -86,6 +90,7 @@ public class DormitoryController {
 
     /**
      * 根据指定寝室的id删除寝室(学生自动分配)
+     *
      * @param id 指定寝室的id
      * @return 重定向到list方法
      */
@@ -97,6 +102,7 @@ public class DormitoryController {
 
     /**
      * 根据指定楼宇id寻找寝室
+     *
      * @param buildingId 指定楼宇的id
      * @return 楼宇内所有寝室信息的结果集(包括寝室内的学生信息)
      */

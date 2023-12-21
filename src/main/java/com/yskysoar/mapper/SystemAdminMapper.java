@@ -11,6 +11,7 @@ public interface SystemAdminMapper {
 
     /**
      * 系统管理员用户名校验
+     *
      * @param name 用户名
      * @return 对应用户数据的结果集
      */

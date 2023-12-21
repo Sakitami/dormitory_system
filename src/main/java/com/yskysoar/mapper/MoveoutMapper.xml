@@ -3,32 +3,44 @@
 <mapper namespace="com.yskysoar.mapper.MoveoutMapper">
 
     <select id="list" resultType="Moveout">
-        select m.id, s.name studentName, d.name dormitoryName, m.reason, m.create_date createDate
-        from moveout m,
+        SELECT m.id,
+               s.name        AS studentName,
+               d.name        AS dormitoryName,
+               m.reason,
+               m.create_date AS createDate
+        FROM moveout m,
              student s,
              dormitory d
-        where m.student_id = s.id
-          and m.dormitory_id = d.id
+        WHERE m.student_id = s.id
+          AND m.dormitory_id = d.id;
     </select>
 
     <select id="searchByStudentName" resultType="Moveout">
-        select m.id, s.name studentName, d.name dormitoryName, m.reason, m.create_date createDate
-        from moveout m,
+        SELECT m.id,
+               s.name        AS studentName,
+               d.name        AS dormitoryName,
+               m.reason,
+               m.create_date AS createDate
+        FROM moveout m,
              student s,
              dormitory d
-        where m.student_id = s.id
-          and m.dormitory_id = d.id
-          and s.name like concat('%', #{value}, '%')
+        WHERE m.student_id = s.id
+          AND m.dormitory_id = d.id
+          AND s.name LIKE CONCAT('%', #{value}, '%');
     </select>
 
     <select id="searchByDormitoryName" resultType="Moveout">
-        select m.id, s.name studentName, d.name dormitoryName, m.reason, m.create_date createDate
-        from moveout m,
+        SELECT m.id,
+               s.name        AS studentName,
+               d.name        AS dormitoryName,
+               m.reason,
+               m.create_date AS createDate
+        FROM moveout m,
              student s,
              dormitory d
-        where m.student_id = s.id
-          and m.dormitory_id = d.id
-          and d.name like concat('%', #{value}, '%')
+        WHERE m.student_id = s.id
+          AND m.dormitory_id = d.id
+          AND d.name LIKE CONCAT('%', #{value}, '%');
     </select>
 
 </mapper>

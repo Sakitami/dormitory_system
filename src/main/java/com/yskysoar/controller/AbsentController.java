@@ -36,6 +36,7 @@ public class AbsentController {
 
     /**
      * 展示缺寝学生列表
+     *
      * @return 视图解析器
      */
     @GetMapping("/list")
@@ -48,6 +49,7 @@ public class AbsentController {
 
     /**
      * 指定信息模糊查询缺寝学生列表
+     *
      * @param key   指定的查询方式(1.楼宇 2.寝室)
      * @param value 模糊查询的数据
      * @return 查询的结果集合
@@ -62,6 +64,7 @@ public class AbsentController {
 
     /**
      * 缺寝登记的表单初始化(三级联动，默认展示第一个数据)
+     *
      * @return 初始化的表单数据
      */
     @GetMapping("/init")
@@ -79,7 +82,8 @@ public class AbsentController {
 
     /**
      * 添加缺寝记录
-     * @param absent 缺寝信息
+     *
+     * @param absent  缺寝信息
      * @param session 当前的寝室管理员
      * @return 重定向到初始化方法
      */

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -10,6 +10,7 @@
     <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- 引入 font-awesome -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="application/javascript">
@@ -26,7 +27,7 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav navbar-left">
             <li>
-                <a style="font-size: 26px;">Yskysoar寝室管理系统-系统管理员</a>
+                <a style="font-size: 26px;">YskysoarTUST寝室管理系统-系统管理员</a>
             </li>
         </ul>
         <span style="color: #CCCCCC;font-size: 26px;position: relative;top: 5px;"></span>
@@ -87,7 +88,7 @@
 </div>
 <div class="footer">
     <p class="text-center">
-        2023 © Yskysoar寝室管理系统
+        2023 © YskysoarTUST寝室管理系统
     </p>
 </div>
 </body>

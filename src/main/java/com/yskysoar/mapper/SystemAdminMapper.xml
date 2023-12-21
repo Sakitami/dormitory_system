@@ -4,9 +4,9 @@
 
     <!--在config.xml配置了统一的包名-->
     <select id="findByUsername" resultType="SystemAdmin">
-        select *
-        from system_admin
-        where username = #{username}
+        SELECT *
+        FROM system_admin
+        WHERE username = #{username};
     </select>
 
 </mapper>

@@ -9,9 +9,10 @@
     <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- 引入 font-awesome -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>寝室管理系统</title>
+    <title>TUST寝室管理系统</title>
 </head>
 <body>
 <div class="container-fluid">
@@ -37,9 +38,9 @@
                         </div>
                         <div class="form-group " style="margin-left: 20px">
                             <button type="submit" class="btn btn-info ">
-										<span style="margin-right: 5px"
-                                              class="glyphicon glyphicon-search" aria-hidden="true">
-										</span>开始搜索
+                                <span style="margin-right: 5px" aria-hidden="true">
+                                    <i class="fa fa-search" aria-hidden="true">开始搜索</i>
+                                </span>
                             </button>
                         </div>
                     </form>

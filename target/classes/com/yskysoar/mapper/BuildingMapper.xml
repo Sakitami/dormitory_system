@@ -4,46 +4,59 @@
 
 
     <select id="list" resultType="Building">
-        select b.id id, b.name name, b.introduction, d.name adminName, d.id adminId
-        from building b,
+        SELECT b.id   AS id,
+               b.name AS name,
+               b.introduction,
+               d.name AS adminName,
+               d.id   AS adminId
+        FROM building b,
              dormitory_admin d
-        where b.admin_id = d.id
+        WHERE b.admin_id = d.id;
     </select>
 
     <select id="searchByName" resultType="Building">
-        select b.id id, b.name name, b.introduction, d.name adminName, d.id adminId
-        from building b,
+        SELECT b.id   AS id,
+               b.name AS name,
+               b.introduction,
+               d.name AS adminName,
+               d.id   AS adminId
+        FROM building b,
              dormitory_admin d
-        where b.admin_id = d.id
-          and b.name like concat('%', #{value}, '%')
+        WHERE b.admin_id = d.id
+          AND b.name LIKE CONCAT('%', #{value}, '%');
     </select>
 
     <select id="searchByIntroduction" resultType="Building">
-        select b.id id, b.name name, b.introduction, d.name adminName, d.id adminId
-        from building b,
+        SELECT b.id   AS id,
+               b.name AS name,
+               b.introduction,
+               d.name AS adminName,
+               d.id   AS adminId
+        FROM building b,
              dormitory_admin d
-        where b.admin_id = d.id
-          and b.introduction like concat('%', #{value}, '%')
+        WHERE b.admin_id = d.id
+          AND b.introduction LIKE CONCAT('%', #{value}, '%');
+
     </select>
 
 
     <insert id="save">
-        insert into building(name, introduction, admin_id)
-        values (#{name}, #{introduction}, #{adminId})
+        INSERT INTO building (name, introduction, admin_id)
+        VALUES (#{name}, #{introduction}, #{adminId});
     </insert>
 
     <update id="update">
-        update building
-        set name         = #{name},
+        UPDATE building
+        SET name         = #{name},
             introduction = #{introduction},
             admin_id     = #{adminId}
-        where id = #{id}
+        WHERE id = #{id};
     </update>
 
     <delete id="delete">
-        delete
-        from building
-        where id = #{id}
+        DELETE
+        FROM building
+        WHERE id = #{id};
     </delete>
 
 

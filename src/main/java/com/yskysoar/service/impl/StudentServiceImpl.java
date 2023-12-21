@@ -29,6 +29,7 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 展示所有学生列表
+     *
      * @return 所有学生列表
      */
     @Override
@@ -39,7 +40,8 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 指定信息模糊查询学生列表
-     * @param key 指定的查询方式(1.学号 2.姓名)
+     *
+     * @param key   指定的查询方式(1.学号 2.姓名)
      * @param value 查询的结果集
      * @return 查询的结果集模糊查询的数据
      */
@@ -65,6 +67,7 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 添加学生
+     *
      * @param student 学生信息
      */
     @Override
@@ -82,6 +85,7 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 更新学生信息
+     *
      * @param student 待更新的学生信息
      */
     @Override
@@ -100,6 +104,7 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 删除学生信息
+     *
      * @param student 待删除学生信息
      */
     @Override
@@ -115,6 +120,7 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 展示所有的学生列表
+     *
      * @return 学生列表
      */
     @Override
@@ -124,7 +130,8 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 指定信息模糊查询迁出学生
-     * @param key 指定的查询方式(1.学号 2.姓名)
+     *
+     * @param key   指定的查询方式(1.学号 2.姓名)
      * @param value 模糊查询的数据
      * @return 查询的结果集合
      */
@@ -148,6 +155,7 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 迁出登记
+     *
      * @param moveout 迁出学生信息
      */
     @Override
@@ -165,6 +173,7 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 根据指定寝室id查询对应学生列表
+     *
      * @param id 指定的寝室id
      * @return 学生列表
      */

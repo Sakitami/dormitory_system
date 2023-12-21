@@ -4,123 +4,142 @@
 
     <!--展示学生列表-->
     <select id="list" resultType="Student">
-        select s.id,
+        SELECT s.id,
                s.number,
-               s.name         name,
+               s.name         AS name,
                s.gender,
-               s.dormitory_id dormitoryId,
-               d.name         dormitoryName,
+               s.dormitory_id AS dormitoryId,
+               d.name         AS dormitoryName,
                s.state,
-               s.create_date  createDate
-        from student s,
-             dormitory d
-        where s.dormitory_id = d.id
+               s.create_date  AS createDate
+        FROM student s
+                 JOIN dormitory d ON s.dormitory_id = d.id
+        ORDER BY s.dormitory_id, s.number;
     </select>
 
 
     <select id="searchByName" resultType="Student">
-        select s.id,
+        SELECT s.id,
                s.number,
-               s.name         name,
+               s.name         AS name,
                s.gender,
-               s.dormitory_id dormitoryId,
-               d.name         dormitoryName,
+               s.dormitory_id AS dormitoryId,
+               d.name         AS dormitoryName,
                s.state,
-               s.create_date  createDate
-        from student s,
+               s.create_date  AS createDate
+        FROM student s,
              dormitory d
-        where s.dormitory_id = d.id
-          and s.name like concat('%', #{value}, '%')
+        WHERE s.dormitory_id = d.id
+          AND s.name LIKE CONCAT('%', #{value}, '%');
     </select>
 
     <select id="searchByNumber" resultType="Student">
-        select s.id,
+        SELECT s.id,
                s.number,
-               s.name         name,
+               s.name         AS name,
                s.gender,
-               s.dormitory_id dormitoryId,
-               d.name         dormitoryName,
+               s.dormitory_id AS dormitoryId,
+               d.name         AS dormitoryName,
                s.state,
-               s.create_date  createDate
-        from student s,
+               s.create_date  AS createDate
+        FROM student s,
              dormitory d
-        where s.dormitory_id = d.id
-          and s.number like concat('%', #{value}, '%')
+        WHERE s.dormitory_id = d.id
+          AND s.number LIKE CONCAT('%', #{value}, '%');
     </select>
 
     <insert id="save">
-        insert into student(number, name, gender, dormitory_id, state, create_date)
-        values (#{number}, #{name}, #{gender}, #{dormitoryId}, '入住', #{createDate})
+        INSERT INTO student (number, name, gender, dormitory_id, state, create_date)
+        VALUES (#{number}, #{name}, #{gender}, #{dormitoryId}, '入住', #{createDate});
     </insert>
 
     <update id="update">
-        update student
-        set number       = #{number},
+        UPDATE student
+        SET number       = #{number},
             name         = #{name},
             gender       = #{gender},
             dormitory_id = #{dormitoryId}
-        where id = #{id}
+        WHERE id = #{id};
     </update>
 
     <delete id="delete">
-        delete
-        from student
-        where id = #{id}
+        DELETE
+        FROM student
+        WHERE id = #{id};
     </delete>
 
     <select id="findStudentIdByDormitoryId" resultType="java.lang.Integer">
-        select id
-        from student
-        where dormitory_id = #{dormitoryId}
+        SELECT id
+        FROM student
+        WHERE dormitory_id = #{dormitoryId};
     </select>
 
     <update id="resetDormitoryId">
-        update student
-        set dormitory_id = #{param2}
-        where id = #{param1}
+        UPDATE student
+        SET dormitory_id = #{param2}
+        WHERE id = #{param1};
     </update>
 
     <select id="moveoutList" resultType="Student">
-        select s.id, s.number, s.name name, s.gender, s.dormitory_id dormitoryId, d.name dormitoryName, s.state
-        from student s,
+        SELECT s.id,
+               s.number,
+               s.name         AS name,
+               s.gender,
+               s.dormitory_id AS dormitoryId,
+               d.name         AS dormitoryName,
+               s.state
+        FROM student s,
              dormitory d
-        where s.dormitory_id = d.id
-          and s.state = '入住'
+        WHERE s.dormitory_id = d.id
+          AND s.state = '入住';
     </select>
 
     <select id="searchForMoveoutByNumber" resultType="Student">
-        select s.id, s.number, s.name name, s.gender, s.dormitory_id dormitoryId, d.name dormitoryName, s.state
-        from student s,
+        SELECT s.id,
+               s.number,
+               s.name         AS name,
+               s.gender,
+               s.dormitory_id AS dormitoryId,
+               d.name         AS dormitoryName,
+               s.state
+        FROM student s,
              dormitory d
-        where s.dormitory_id = d.id
-          and s.state = '入住'
-          and s.number like concat('%', #{value}, '%')
+        WHERE s.dormitory_id = d.id
+          AND s.state = '入住'
+          AND s.number LIKE CONCAT('%', #{value}, '%');
     </select>
 
     <select id="searchForMoveoutByName" resultType="Student">
-        select s.id, s.number, s.name name, s.gender, s.dormitory_id dormitoryId, d.name dormitoryName, s.state
-        from student s,
+        SELECT s.id,
+               s.number,
+               s.name         AS name,
+               s.gender,
+               s.dormitory_id AS dormitoryId,
+               d.name         AS dormitoryName,
+               s.state
+        FROM student s,
              dormitory d
-        where s.dormitory_id = d.id
-          and s.state = '入住'
-          and s.name like concat('%', #{value}, '%')
+        WHERE s.dormitory_id = d.id
+          AND s.state = '入住'
+          AND s.name LIKE CONCAT('%', #{value}, '%');
     </select>
 
     <update id="updateStateById">
-        update student
-        set state = '迁出'
-        where id = #{id}
+        UPDATE student
+        SET state = '迁出'
+        WHERE id = #{id};
     </update>
 
     <insert id="moveout">
-        insert into moveout(student_id, dormitory_id, reason, create_date)
-        values (#{studentId}, #{dormitoryId}, #{reason}, #{createDate})
+        INSERT INTO moveout (student_id, dormitory_id, reason, create_date)
+        VALUES (#{studentId}, #{dormitoryId}, #{reason}, #{createDate});
     </insert>
 
     <select id="findByDormitoryId" resultType="Student">
-        select id, name
-        from student
-        where dormitory_id = #{dormitoryId}
+        SELECT id,
+               name
+        FROM student
+        WHERE dormitory_id = #{dormitoryId};
     </select>
 
 </mapper>

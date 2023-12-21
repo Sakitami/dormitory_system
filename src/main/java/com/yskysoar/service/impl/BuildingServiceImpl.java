@@ -34,7 +34,8 @@ public class BuildingServiceImpl implements BuildingService {
 
     /**
      * 指定信息模糊查询楼宇列表
-     * @param key 指定的查询方式(1.名称 2.介绍)
+     *
+     * @param key   指定的查询方式(1.名称 2.介绍)
      * @param value 模糊查询的数据
      * @return 查询的结果集合
      */
@@ -59,6 +60,7 @@ public class BuildingServiceImpl implements BuildingService {
 
     /**
      * 添加楼宇
+     *
      * @param building 楼宇信息
      */
     @Override
@@ -72,6 +74,7 @@ public class BuildingServiceImpl implements BuildingService {
 
     /**
      * 更新楼宇信息
+     *
      * @param building 新的楼宇信息
      */
     @Override
@@ -85,6 +88,7 @@ public class BuildingServiceImpl implements BuildingService {
 
     /**
      * 删除指定id的楼宇(对应寝室也进行删除，学生自动分配)
+     *
      * @param id 待删除楼宇的id
      */
     @Override
