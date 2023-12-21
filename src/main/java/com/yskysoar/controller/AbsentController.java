@@ -36,7 +36,6 @@ public class AbsentController {
 
     /**
      * 展示缺寝学生列表
-     *
      * @return 视图解析器
      */
     @GetMapping("/list")
@@ -49,8 +48,7 @@ public class AbsentController {
 
     /**
      * 指定信息模糊查询缺寝学生列表
-     *
-     * @param key   指定的查询方式(1.楼宇 2.寝室)
+     * @param key   指定的查询方式(1.寝室楼 2.寝室)
      * @param value 模糊查询的数据
      * @return 查询的结果集合
      */
@@ -64,16 +62,15 @@ public class AbsentController {
 
     /**
      * 缺寝登记的表单初始化(三级联动，默认展示第一个数据)
-     *
      * @return 初始化的表单数据
      */
     @GetMapping("/init")
     public ModelAndView init() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("absentregister");//设置跳转的页面
-        List<Building> buildingList = this.buildingService.list();//获取所有的楼宇列表
-        modelAndView.addObject("buildingList", buildingList);//返回楼宇列表的结果集
-        List<Dormitory> dormitoryList = this.dormitoryService.findByBuildingId(buildingList.get(0).getId());//获取楼宇内所有的寝室列表
+        List<Building> buildingList = this.buildingService.list();//获取所有的寝室楼列表
+        modelAndView.addObject("buildingList", buildingList);//返回寝室楼列表的结果集
+        List<Dormitory> dormitoryList = this.dormitoryService.findByBuildingId(buildingList.get(0).getId());//获取寝室楼内所有的寝室列表
         modelAndView.addObject("dormitoryList", dormitoryList);//返回寝室列表的结果集
         List<Student> studentList = this.studentService.findByDormitoryId(dormitoryList.get(0).getId());//获取寝室内所有的学生列表
         modelAndView.addObject("studentList", studentList);//返回学生列表的结果集
@@ -82,7 +79,6 @@ public class AbsentController {
 
     /**
      * 添加缺寝记录
-     *
      * @param absent  缺寝信息
      * @param session 当前的寝室管理员
      * @return 重定向到初始化方法

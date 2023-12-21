@@ -31,7 +31,6 @@ public class StudentController {
 
     /**
      * 展示所有学生列表
-     *
      * @return 视图解析器
      */
     @GetMapping("/list")
@@ -45,7 +44,6 @@ public class StudentController {
 
     /**
      * 指定信息模糊查询学生列表
-     *
      * @param key   指定的查询方式(1.学号 2.姓名)
      * @param value 查询的结果集
      * @return 视图解析器
@@ -61,7 +59,6 @@ public class StudentController {
 
     /**
      * 添加学生
-     *
      * @param student 学生信息
      * @return 重定向到list方法
      */
@@ -73,7 +70,6 @@ public class StudentController {
 
     /**
      * 更新学生信息
-     *
      * @param student 待更新的学生信息
      * @return 重定向到list方法
      */
@@ -85,7 +81,6 @@ public class StudentController {
 
     /**
      * 删除学生信息
-     *
      * @param student 待删除学生信息
      * @return 重定向到list方法
      */
@@ -97,7 +92,6 @@ public class StudentController {
 
     /**
      * 根据指定寝室id查询对应学生列表
-     *
      * @param dormitoryId 指定的寝室id
      * @return 查询的学生列表结果集合
      */

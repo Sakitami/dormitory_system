@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @author Yskysoar
  * @createTime 2023-06-19 21:04
- * @description 宿管管理接口的实现类
+ * @description 寝室管理员管理接口的实现类
  */
 
 @Service
@@ -23,7 +23,6 @@ public class DormitoryAdminServiceImpl implements DormitoryAdminService {
 
     /**
      * 展示所有的寝室管理员列表
-     *
      * @return 寝室管理员列表
      */
     @Override
@@ -34,7 +33,6 @@ public class DormitoryAdminServiceImpl implements DormitoryAdminService {
 
     /**
      * 指定信息模糊查询寝室管理员列表
-     *
      * @param key   指定的方式(1.用户名 2.姓名 3.电话)
      * @param value 模糊查询的数据
      * @return 查询的结果结合
@@ -66,7 +64,6 @@ public class DormitoryAdminServiceImpl implements DormitoryAdminService {
 
     /**
      * 添加寝室管理员
-     *
      * @param dormitoryAdmin 寝室管理员信息
      */
     @Override
@@ -81,7 +78,6 @@ public class DormitoryAdminServiceImpl implements DormitoryAdminService {
 
     /**
      * 根据id删除指定寝室管理员
-     *
      * @param id 指定寝室管理员的id
      */
     @Override
@@ -96,7 +92,6 @@ public class DormitoryAdminServiceImpl implements DormitoryAdminService {
 
     /**
      * 更新寝室管理员信息
-     *
      * @param dormitoryAdmin 更新的寝室管理员信息
      */
     @Override

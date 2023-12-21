@@ -32,7 +32,7 @@
                     <div class="modal-body">
                         <form class="form-horizontal" role="form">
                             <div class="form-group">
-                                <label for="user_id" class="col-sm-3 control-label">楼宇</label>
+                                <label for="user_id" class="col-sm-3 control-label">寝室楼</label>
                                 <div class="col-sm-9">
                                     <select id="building" required class="form-control" name="buildingId">
                                         <c:forEach items="${buildingList}" var="building">

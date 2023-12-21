@@ -10,5 +10,6 @@ import com.yskysoar.form.AccountForm;
  */
 public interface AccountService {
     public AccountDto login(AccountForm accountForm);
+
     public AccountDto register(AccountForm accountForm);
 }

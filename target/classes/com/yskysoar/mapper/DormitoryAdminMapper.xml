@@ -3,59 +3,61 @@
 <mapper namespace="com.yskysoar.mapper.DormitoryAdminMapper">
 
     <!--在config.xml配置了统一的包名-->
+    <!--根据用户名查询管理员信息-->
     <select id="findByUserName" resultType="DormitoryAdmin">
         SELECT *
         FROM dormitory_admin
         WHERE username = #{username};
     </select>
 
-    <!--展示所有寝室管理员-->
+    <!--新增寝室管理员-->
+    <insert id="saveUserToDormitory">
+        INSERT INTO dormitory_admin (username, password, name, gender, telephone)
+        VALUES (#{username}, #{password}, '请手动修改', '请手动修改', '请手动修改');
+    </insert>
+
+    <!--展示寝室管理员列表-->
     <select id="list" resultType="DormitoryAdmin">
         SELECT *
         FROM dormitory_admin;
     </select>
 
-    <!--查询指定用户名的寝室管理员(模糊查询)-->
+    <!--根据用户名模糊查找寝室管理员-->
     <select id="searchByUsername" resultType="DormitoryAdmin">
         SELECT *
         FROM dormitory_admin
         WHERE username LIKE CONCAT('%', #{value}, '%');
     </select>
 
-    <!--查询指定姓名的寝室管理员(模糊查询)-->
+    <!--根据姓名模糊查找寝室管理员-->
     <select id="searchByName" resultType="DormitoryAdmin">
         SELECT *
         FROM dormitory_admin
         WHERE name LIKE CONCAT('%', #{value}, '%');
     </select>
 
-    <!--查询指定手机号的寝室管理员(模糊查询)-->
+    <!--根据手机号模糊查找寝室管理员-->
     <select id="searchByTelephone" resultType="DormitoryAdmin">
         SELECT *
         FROM dormitory_admin
         WHERE telephone LIKE CONCAT('%', #{value}, '%');
     </select>
 
-    <!--新增宿管信息-->
+    <!--新增寝室管理员-->
     <insert id="save">
         INSERT INTO dormitory_admin (username, password, name, gender, telephone)
         VALUES (#{username}, #{password}, #{name}, #{gender}, #{telephone});
     </insert>
 
-    <!--注册宿管信息-->
-    <insert id="saveUserToDormitory">
-        INSERT INTO dormitory_admin (username, password, name, gender, telephone)
-        VALUES (#{username}, #{password}, '请手动修改', '请手动修改', '请手动修改');
-    </insert>
 
-    <!--删除宿管信息-->
+    <!--根据id删除寝室管理员-->
     <delete id="delete">
         DELETE
         FROM dormitory_admin
         WHERE id = #{id};
     </delete>
 
-
+    <!--更新寝室管理员-->
     <update id="update">
         UPDATE dormitory_admin
         SET username  = #{username},

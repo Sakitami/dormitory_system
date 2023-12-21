@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yskysoar.mapper.StudentMapper">
 
+    <!--在config.xml配置了统一的包名-->
     <!--展示学生列表-->
     <select id="list" resultType="Student">
         SELECT s.id,
@@ -17,7 +18,7 @@
         ORDER BY s.dormitory_id, s.number;
     </select>
 
-
+    <!--根据姓名模糊查询学生-->
     <select id="searchByName" resultType="Student">
         SELECT s.id,
                s.number,
@@ -33,6 +34,7 @@
           AND s.name LIKE CONCAT('%', #{value}, '%');
     </select>
 
+    <!--根据学号模糊查询学生-->
     <select id="searchByNumber" resultType="Student">
         SELECT s.id,
                s.number,
@@ -48,11 +50,13 @@
           AND s.number LIKE CONCAT('%', #{value}, '%');
     </select>
 
+    <!--新增学生-->
     <insert id="save">
         INSERT INTO student (number, name, gender, dormitory_id, state, create_date)
         VALUES (#{number}, #{name}, #{gender}, #{dormitoryId}, '入住', #{createDate});
     </insert>
 
+    <!--更新学生-->
     <update id="update">
         UPDATE student
         SET number       = #{number},
@@ -62,24 +66,28 @@
         WHERE id = #{id};
     </update>
 
+    <!--删除学生-->
     <delete id="delete">
         DELETE
         FROM student
         WHERE id = #{id};
     </delete>
 
+    <!--根据寝室id展示寝室内学生-->
     <select id="findStudentIdByDormitoryId" resultType="java.lang.Integer">
         SELECT id
         FROM student
         WHERE dormitory_id = #{dormitoryId};
     </select>
 
+    <!--重新分配学生-->
     <update id="resetDormitoryId">
         UPDATE student
         SET dormitory_id = #{param2}
         WHERE id = #{param1};
     </update>
 
+    <!--展示迁出学生列表-->
     <select id="moveoutList" resultType="Student">
         SELECT s.id,
                s.number,
@@ -94,6 +102,7 @@
           AND s.state = '入住';
     </select>
 
+    <!--根据学号模糊查找迁出学生-->
     <select id="searchForMoveoutByNumber" resultType="Student">
         SELECT s.id,
                s.number,
@@ -109,6 +118,7 @@
           AND s.number LIKE CONCAT('%', #{value}, '%');
     </select>
 
+    <!--根据姓名模糊查找迁出学生-->
     <select id="searchForMoveoutByName" resultType="Student">
         SELECT s.id,
                s.number,
@@ -124,22 +134,24 @@
           AND s.name LIKE CONCAT('%', #{value}, '%');
     </select>
 
+    <!--根据学生id更新状态-->
     <update id="updateStateById">
         UPDATE student
         SET state = '迁出'
         WHERE id = #{id};
     </update>
 
+    <!--迁出登记-->
     <insert id="moveout">
         INSERT INTO moveout (student_id, dormitory_id, reason, create_date)
         VALUES (#{studentId}, #{dormitoryId}, #{reason}, #{createDate});
     </insert>
 
+    <!--根据寝室id查找学生-->
     <select id="findByDormitoryId" resultType="Student">
         SELECT id,
                name
         FROM student
         WHERE dormitory_id = #{dormitoryId};
     </select>
-
 </mapper>

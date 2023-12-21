@@ -36,7 +36,6 @@ public class DormitoryController {
 
     /**
      * 展示所有的寝室列表
-     *
      * @return 视图解析器
      */
     @GetMapping("/list")
@@ -44,13 +43,12 @@ public class DormitoryController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("dormitorymanager");
         modelAndView.addObject("list", this.dormitoryService.list());//返回寝室列表的结果集
-        modelAndView.addObject("buildingList", this.buildingService.list());//返回寝室对应楼宇的结果集
+        modelAndView.addObject("buildingList", this.buildingService.list());//返回寝室对应寝室楼的结果集
         return modelAndView;
     }
 
     /**
      * 指定信息模糊查询寝室列表
-     *
      * @param key   指定的查询方式(1.名称 2.介绍)
      * @param value 模糊查询的数据
      * @return 视图解析器
@@ -60,13 +58,12 @@ public class DormitoryController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("dormitorymanager");
         modelAndView.addObject("list", this.dormitoryService.search(key, value));//返回模糊查询的结果集
-        modelAndView.addObject("buildingList", this.buildingService.list());//返回寝室对应楼宇的结果集
+        modelAndView.addObject("buildingList", this.buildingService.list());//返回寝室对应寝室楼的结果集
         return modelAndView;
     }
 
     /**
      * 添加寝室
-     *
      * @param dormitory 寝室信息
      * @return 重定向到list方法
      */
@@ -78,7 +75,6 @@ public class DormitoryController {
 
     /**
      * 更新寝室信息
-     *
      * @param dormitory 待更新寝室信息
      * @return 重定向到list方法
      */
@@ -90,7 +86,6 @@ public class DormitoryController {
 
     /**
      * 根据指定寝室的id删除寝室(学生自动分配)
-     *
      * @param id 指定寝室的id
      * @return 重定向到list方法
      */
@@ -101,15 +96,14 @@ public class DormitoryController {
     }
 
     /**
-     * 根据指定楼宇id寻找寝室
-     *
-     * @param buildingId 指定楼宇的id
-     * @return 楼宇内所有寝室信息的结果集(包括寝室内的学生信息)
+     * 根据指定寝室楼id寻找寝室
+     * @param buildingId 指定寝室楼的id
+     * @return 寝室楼内所有寝室信息的结果集(包括寝室内的学生信息)
      */
     @PostMapping("/findByBuildingId")
     @ResponseBody
     public List findByBuildingId(Integer buildingId) {
-        List<Dormitory> dormitoryList = this.dormitoryService.findByBuildingId(buildingId);//获取当前楼宇所有寝室的结果集
+        List<Dormitory> dormitoryList = this.dormitoryService.findByBuildingId(buildingId);//获取当前寝室楼所有寝室的结果集
         List list = null;
         if (dormitoryList.size() > 0) {//若存在寝室
             List<Student> studentList = this.studentService.findByDormitoryId(dormitoryList.get(0).getId());//获取对应寝室内的学生列表结果集

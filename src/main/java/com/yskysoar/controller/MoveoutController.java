@@ -27,7 +27,6 @@ public class MoveoutController {
 
     /**
      * 展示所有的学生列表
-     *
      * @return 视图解析器
      */
     @GetMapping("/list")
@@ -40,7 +39,6 @@ public class MoveoutController {
 
     /**
      * 指定信息模糊查询迁出学生
-     *
      * @param key   指定的查询方式(1.学号 2.姓名)
      * @param value 模糊查询的数据
      * @return 视图解析器
@@ -55,7 +53,6 @@ public class MoveoutController {
 
     /**
      * 迁出登记
-     *
      * @param moveout 迁出学生信息
      * @return 重定向到list方法
      */
@@ -67,7 +64,6 @@ public class MoveoutController {
 
     /**
      * 迁出记录展示
-     *
      * @return 视图解析器
      */
     @GetMapping("/record")
@@ -80,7 +76,6 @@ public class MoveoutController {
 
     /**
      * 指定方式模糊查询迁出记录
-     *
      * @param key   指定的查询方式(1.学生 2.寝室)
      * @param value 查询的结果集
      * @return 视图解析器

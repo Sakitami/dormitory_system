@@ -33,8 +33,7 @@ public class BuildingServiceImpl implements BuildingService {
     }
 
     /**
-     * 指定信息模糊查询楼宇列表
-     *
+     * 指定信息模糊查询寝室楼列表
      * @param key   指定的查询方式(1.名称 2.介绍)
      * @param value 模糊查询的数据
      * @return 查询的结果集合
@@ -59,9 +58,8 @@ public class BuildingServiceImpl implements BuildingService {
     }
 
     /**
-     * 添加楼宇
-     *
-     * @param building 楼宇信息
+     * 添加寝室楼
+     * @param building 寝室楼信息
      */
     @Override
     public void save(Building building) {
@@ -73,9 +71,8 @@ public class BuildingServiceImpl implements BuildingService {
     }
 
     /**
-     * 更新楼宇信息
-     *
-     * @param building 新的楼宇信息
+     * 更新寝室楼信息
+     * @param building 新的寝室楼信息
      */
     @Override
     public void update(Building building) {
@@ -87,9 +84,8 @@ public class BuildingServiceImpl implements BuildingService {
     }
 
     /**
-     * 删除指定id的楼宇(对应寝室也进行删除，学生自动分配)
-     *
-     * @param id 待删除楼宇的id
+     * 删除指定id的寝室楼(对应寝室也进行删除，学生自动分配)
+     * @param id 待删除寝室楼的id
      */
     @Override
     public void delete(Integer id) {
@@ -108,7 +104,7 @@ public class BuildingServiceImpl implements BuildingService {
                 //删除待删除的寝室
                 this.dormitoryMapper.delete(dormitoryId);
             }
-            //删除待删除的楼宇
+            //删除待删除的寝室楼
             this.buildingMapper.delete(id);
         } catch (Exception e) {
             e.printStackTrace();

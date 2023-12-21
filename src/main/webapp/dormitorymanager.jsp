@@ -59,7 +59,7 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>楼宇</th>
+                        <th>寝室楼</th>
                         <th>名称</th>
                         <th>几人间</th>
                         <th>空余床位</th>
@@ -114,7 +114,7 @@
                                 <div class="modal-body">
                                     <form class="form-horizontal" role="form">
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">楼宇</label>
+                                            <label for="user_id" class="col-sm-3 control-label">寝室楼</label>
                                             <div class="col-sm-9">
                                                 <select class="form-control" name="buildingId">
                                                     <c:forEach items="${buildingList}" var="building">

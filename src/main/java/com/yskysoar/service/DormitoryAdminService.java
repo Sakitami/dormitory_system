@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author Yskysoar
  * @createTime 2023-06-19 21:03
- * @description 宿管管理所需业务的接口
+ * @description 寝室管理员管理所需业务的接口
  */
 public interface DormitoryAdminService {
     public List<DormitoryAdmin> list();

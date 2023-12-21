@@ -21,7 +21,6 @@ public class AbsentServiceImpl implements AbsentService {
 
     /**
      * 展示缺寝学生列表
-     *
      * @return 缺寝学生列表
      */
     @Override
@@ -31,8 +30,7 @@ public class AbsentServiceImpl implements AbsentService {
 
     /**
      * 指定信息模糊查询缺寝学生列表
-     *
-     * @param key   指定的查询方式(1.楼宇 2.寝室)
+     * @param key   指定的查询方式(1.寝室楼 2.寝室)
      * @param value 模糊查询的数据
      * @return 查询的结果集合
      */
@@ -57,7 +55,6 @@ public class AbsentServiceImpl implements AbsentService {
 
     /**
      * 添加缺寝记录
-     *
      * @param absent 缺寝信息
      */
     @Override

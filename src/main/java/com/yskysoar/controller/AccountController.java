@@ -27,7 +27,6 @@ public class AccountController {
 
     /**
      * 账号登录控制器
-     *
      * @param accountForm 封装前端传递的登录信息
      * @param httpSession 确认登录成功后开启的一次临时会话
      * @return 登录结果
@@ -93,7 +92,6 @@ public class AccountController {
 
     /**
      * 登出当前账户
-     *
      * @param httpSession 当前执行的临时会话对象
      * @return 重定向到login页面
      */

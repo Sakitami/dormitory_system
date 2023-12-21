@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * @author Yskysoar
  * @createTime 2023-06-22 22:44
- * @description 楼宇的实体类
+ * @description 寝室楼的实体类
  */
 
 @Data

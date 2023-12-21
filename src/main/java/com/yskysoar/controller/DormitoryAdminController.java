@@ -24,7 +24,6 @@ public class DormitoryAdminController {
 
     /**
      * 展示所有的寝室管理员列表
-     *
      * @return 视图解析器
      */
     @GetMapping("/list")
@@ -37,7 +36,6 @@ public class DormitoryAdminController {
 
     /**
      * 指定信息模糊查询寝室管理员列表
-     *
      * @param key   指定的方式(1.用户名 2.姓名 3.电话)
      * @param value 模糊查询的数据
      * @return 视图解析器
@@ -52,7 +50,6 @@ public class DormitoryAdminController {
 
     /**
      * 添加寝室管理员
-     *
      * @param dormitoryAdmin 寝室管理员信息
      * @return 重定向到list方法
      */
@@ -64,7 +61,6 @@ public class DormitoryAdminController {
 
     /**
      * 根据id删除指定寝室管理员
-     *
      * @param id 指定寝室管理员的id
      * @return 重定向到list方法
      */
@@ -76,7 +72,6 @@ public class DormitoryAdminController {
 
     /**
      * 更新寝室管理员信息
-     *
      * @param dormitoryAdmin 更新的寝室管理员信息
      * @return 重定向到list方法
      */

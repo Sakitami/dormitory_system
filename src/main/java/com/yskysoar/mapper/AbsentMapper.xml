@@ -2,6 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yskysoar.mapper.AbsentMapper">
 
+    <!--在config.xml配置了统一的包名-->
+    <!--展示缺寝学生列表-->
     <select id="list" resultType="Absent">
         SELECT a.id,
                b.name        AS buildingName,
@@ -21,6 +23,7 @@
           AND da.id = a.dormitory_admin_id;
     </select>
 
+    <!--根据寝室楼模糊查找缺寝记录-->
     <select id="searchByBuildingName" resultType="Absent">
         SELECT a.id,
                b.name        AS buildingName,
@@ -41,6 +44,7 @@
           AND b.name LIKE CONCAT('%', #{value}, '%');
     </select>
 
+    <!--根据寝室号模糊查找缺寝记录-->
     <select id="searchByDormitoryName" resultType="Absent">
         SELECT a.id,
                b.name        AS buildingName,
@@ -61,6 +65,7 @@
           AND d.name LIKE CONCAT('%', #{value}, '%');
     </select>
 
+    <!--新增寝室记录-->
     <insert id="save">
         INSERT INTO absent (building_id, dormitory_id, student_id, dormitory_admin_id, create_date, reason)
         VALUES (#{buildingId}, #{dormitoryId}, #{studentId}, #{dormitoryAdminId}, #{createDate}, #{reason});

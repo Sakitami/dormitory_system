@@ -3,13 +3,14 @@
 <mapper namespace="com.yskysoar.mapper.SystemAdminMapper">
 
     <!-- 在 config.xml 配置了统一的包名 -->
-
+    <!--根据用户名查找系统管理员-->
     <select id="findByUsername" resultType="SystemAdmin">
         SELECT *
         FROM system_admin
         WHERE username = #{username};
     </select>
 
+    <!--新增系统管理员-->
     <insert id="saveUserToSystem">
         INSERT INTO system_admin (username, password, name, telephone)
         VALUES (#{username}, #{password}, '请手动修改', '请手动修改');
