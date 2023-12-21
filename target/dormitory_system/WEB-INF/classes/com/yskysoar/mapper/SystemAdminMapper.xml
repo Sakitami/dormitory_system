@@ -2,11 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yskysoar.mapper.SystemAdminMapper">
 
-    <!--在config.xml配置了统一的包名-->
+    <!-- 在 config.xml 配置了统一的包名 -->
+
     <select id="findByUsername" resultType="SystemAdmin">
         SELECT *
         FROM system_admin
         WHERE username = #{username};
     </select>
+
+    <insert id="saveUserToSystem">
+        INSERT INTO system_admin (username, password, name, telephone)
+        VALUES (#{username}, #{password}, '请手动修改', '请手动修改');
+    </insert>
 
 </mapper>

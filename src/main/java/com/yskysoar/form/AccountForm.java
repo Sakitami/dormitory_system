@@ -12,4 +12,7 @@ public class AccountForm {
     private String username;//用户名
     private String password;//密码
     private String type;//登录人员类型
+    private String action;//登录/注册操作
 }
+
+

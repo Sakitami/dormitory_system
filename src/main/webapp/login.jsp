@@ -21,12 +21,13 @@
     <div class="form row" style="height: 300px;">
         <form class="form-horizontal col-md-offset-3" id="login_form" action="<c:url value="/account/login"/>"
               method="post">
-            <h3 class="form-title" style="margin-left: 18%">用户登录</h3>
+            <h3 class="form-title" style="margin-left: 18%">用户界面</h3>
             <div class="col-md-9">
                 <div class="form-group">
                     <label>
                         <i class="fa fa-user fa-lg"></i>
                         <span style="color: red;font-size: 13px;margin-left: -17px;">${usernameError}</span>
+                        <span style="color: red;font-size: 13px;margin-left: -17px;">${usernameRepeat}</span>
                         <input class="form-control required" required placeholder="请输入用户名" type="text" name="username"
                                style="font-weight: normal"/>
                     </label>
@@ -48,8 +49,9 @@
                     </label>
                 </div>
                 <div class="form-group col-md-offset-9">
-                    <button type="submit" class="btn btn-success pull-left" name="submit">登录</button>
-                    <button type="reset" class="btn btn-success pull-right" name="submit">重置</button>
+                    <button type="submit" class="btn btn-success pull-left" name="action" value="login">登录</button>
+                    <%--                    <button type="reset" class="btn btn-success pull-right" name="submit">重置</button>--%>
+                    <button type="submit" class="btn btn-success pull-right" name="action" value="register">注册</button>
                 </div>
             </div>
         </form>

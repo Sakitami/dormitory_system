@@ -20,6 +20,12 @@ public interface DormitoryAdminMapper {
     public DormitoryAdmin findByUserName(String username);
 
     /**
+     * 注册寝室管理员
+     * @param dormitoryAdmin 寝室管理员信息
+     */
+    public void saveUserToDormitory(DormitoryAdmin dormitoryAdmin);
+
+    /**
      * 展示所有的寝室管理员列表
      *
      * @return 寝室管理员列表

@@ -42,6 +42,12 @@
         VALUES (#{username}, #{password}, #{name}, #{gender}, #{telephone});
     </insert>
 
+    <!--注册宿管信息-->
+    <insert id="saveUserToDormitory">
+        INSERT INTO dormitory_admin (username, password, name, gender, telephone)
+        VALUES (#{username}, #{password}, '请手动修改', '请手动修改', '请手动修改');
+    </insert>
+
     <!--删除宿管信息-->
     <delete id="delete">
         DELETE
@@ -59,5 +65,4 @@
             telephone = #{telephone}
         WHERE id = #{id};
     </update>
-
 </mapper>

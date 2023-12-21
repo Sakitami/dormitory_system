@@ -72,4 +72,46 @@ public class AccountServiceImpl implements AccountService {
         }
         return dto;
     }
+
+    @Override
+    @Transactional
+    public AccountDto register(AccountForm accountForm) {
+        AccountDto dto = new AccountDto<>();//创建账户类型实体类
+        //判断用户类型
+        switch (accountForm.getType()) {
+            case "systemAdmin": {
+                SystemAdmin systemAdmin = this.systemAdminMapper.findByUsername(accountForm.getUsername());
+                //判断用户名是否存在
+                if (systemAdmin != null) {
+                    dto.setCode(-3);//用户名存在
+                } else {
+                    //用户名不存在，新建用户
+                    SystemAdmin registerAdmin = new SystemAdmin();
+                    registerAdmin.setUsername(accountForm.getUsername());
+                    registerAdmin.setPassword(accountForm.getPassword());
+                    this.systemAdminMapper.saveUserToSystem(registerAdmin);
+                    dto.setAdmin(this.systemAdminMapper.findByUsername(accountForm.getUsername()));//设置管理员类型
+                    dto.setCode(1);//注册成功
+                }
+                break;
+            }
+            case "dormitoryAdmin": {
+                DormitoryAdmin dormitoryAdmin = this.dormitoryAdminMapper.findByUserName(accountForm.getUsername());
+                //判断用户名是否存在
+                if (dormitoryAdmin != null) {
+                    dto.setCode(-1);//用户名存在
+                } else {
+                    //用户名不存在，新建用户
+                    DormitoryAdmin registerAdmin = new DormitoryAdmin();
+                    registerAdmin.setUsername(accountForm.getUsername());
+                    registerAdmin.setPassword(accountForm.getPassword());
+                    this.dormitoryAdminMapper.saveUserToDormitory(registerAdmin);
+                    dto.setAdmin(this.dormitoryAdminMapper.findByUserName(accountForm.getUsername()));//设置管理员类型
+                    dto.setCode(1);//注册成功
+                }
+                break;
+            }
+        }
+        return dto;
+    }
 }

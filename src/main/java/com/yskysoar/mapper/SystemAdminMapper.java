@@ -16,4 +16,11 @@ public interface SystemAdminMapper {
      * @return 对应用户数据的结果集
      */
     public SystemAdmin findByUsername(String name);
+
+    /**
+     * 注册系统管理员
+     *
+     * @param systemAdmin 系统管理员信息
+     */
+    public void saveUserToSystem(SystemAdmin systemAdmin);
 }
