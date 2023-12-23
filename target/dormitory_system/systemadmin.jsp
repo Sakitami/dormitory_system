@@ -58,7 +58,7 @@
             <a href="javascript:void(0)" class="list-group-item" onclick="change('building/list',2)">
 				<span class="" aria-hidden="true">
 					<i class="fa fa-home fa-fw"></i>
-				</span>楼宇管理
+				</span>寝室楼管理
             </a>
             <a href="javascript:void(0)" class="list-group-item" onclick="change('dormitory/list',3)">
 				<span class="" aria-hidden="true">

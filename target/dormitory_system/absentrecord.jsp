@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -24,22 +24,26 @@
                 <div class="panel-body">
                     <form role="form" class="form-inline" action="<c:url value="/absent/search"/>" method="post">
                         <div class="form-group">
-                            <label for="name">字段：</label>
-                            <select name="key" class="form-control">
-                                <option value="buildingName">楼宇</option>
-                                <option value="dormitoryName">寝室</option>
-                            </select>
+                            <label>字段：</label>
+                            <label style="font-weight: normal;margin: 0">
+                                <select name="key" class="form-control">
+                                    <option value="buildingName">寝室楼</option>
+                                    <option value="dormitoryName">寝室</option>
+                                </select>
+                            </label>
                         </div>
                         <div class="form-group" style="margin-left: 20px">
-                            <label for="value">值：</label>
-                            <input type="text" class="form-control" name="value" placeholder="字段值" maxlength="12"
-                                   style="width: 130px">
+                            <label>值：</label>
+                            <label style="font-weight: normal;margin: 0">
+                                <input type="text" class="form-control" name="value" placeholder="字段值" maxlength="12"
+                                       style="width: 130px">
+                            </label>
                         </div>
                         <div class="form-group " style="margin-left: 20px">
                             <button type="submit" class="btn btn-info ">
-										<span style="margin-right: 5px"
-                                              class="glyphicon glyphicon-search" aria-hidden="true">
-										</span>开始搜索
+                                <span style="margin-right: 5px" aria-hidden="true">
+                                    <i class="fa fa-search" aria-hidden="true">开始搜索</i>
+                                </span>
                             </button>
                         </div>
                     </form>
@@ -51,7 +55,7 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>楼宇</th>
+                        <th>寝室楼</th>
                         <th>寝室</th>
                         <th>姓名</th>
                         <th>原因</th>

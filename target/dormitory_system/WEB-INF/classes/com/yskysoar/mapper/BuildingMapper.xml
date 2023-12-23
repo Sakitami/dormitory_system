@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yskysoar.mapper.BuildingMapper">
 
-
+    <!--在config.xml配置了统一的包名-->
+    <!--展示寝室楼列表-->
     <select id="list" resultType="Building">
         SELECT b.id   AS id,
                b.name AS name,
@@ -14,6 +15,7 @@
         WHERE b.admin_id = d.id;
     </select>
 
+    <!--根据名称模糊查询寝室楼-->
     <select id="searchByName" resultType="Building">
         SELECT b.id   AS id,
                b.name AS name,
@@ -26,6 +28,7 @@
           AND b.name LIKE CONCAT('%', #{value}, '%');
     </select>
 
+    <!--根据介绍模糊查询寝室楼-->
     <select id="searchByIntroduction" resultType="Building">
         SELECT b.id   AS id,
                b.name AS name,
@@ -39,12 +42,13 @@
 
     </select>
 
-
+    <!--新增寝室楼-->
     <insert id="save">
         INSERT INTO building (name, introduction, admin_id)
         VALUES (#{name}, #{introduction}, #{adminId});
     </insert>
 
+    <!--更新寝室楼信息-->
     <update id="update">
         UPDATE building
         SET name         = #{name},
@@ -53,6 +57,7 @@
         WHERE id = #{id};
     </update>
 
+    <!--根据id删除寝室楼-->
     <delete id="delete">
         DELETE
         FROM building

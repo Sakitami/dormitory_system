@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yskysoar.mapper.DormitoryMapper">
 
-
+    <!--在config.xml配置了统一的包名-->
+    <!--查找有空闲位置的寝室-->
     <select id="availableList" resultType="Dormitory">
         SELECT id,
                name
@@ -10,24 +11,28 @@
         WHERE available > 0;
     </select>
 
+    <!--根据寝室id减少一个可用位置-->
     <update id="subAvailable">
         UPDATE dormitory
         SET available = available - 1
         WHERE id = #{id};
     </update>
 
+    <!--根据寝室id添加一个可用位置-->
     <insert id="addAvailable">
         UPDATE dormitory
         SET available = available + 1
         WHERE id = #{id};
     </insert>
 
+    <!--根据寝室楼id展示寝室列表-->
     <select id="findDormitoryByBuildingId" resultType="java.lang.Integer">
         SELECT id
         FROM dormitory
         WHERE building_id = #{buildingId};
     </select>
 
+    <!--查找有空闲位置的寝室id-->
     <select id="findAvailableDormitoryId" resultType="java.lang.Integer">
         SELECT id
         FROM dormitory
@@ -35,12 +40,14 @@
         LIMIT 0, 1;
     </select>
 
+    <!--根据id删除寝室-->
     <delete id="delete">
         DELETE
         FROM dormitory
         WHERE id = #{id};
     </delete>
 
+    <!--展示寝室列表-->
     <select id="list" resultType="Dormitory">
         SELECT d.id,
                b.name AS buildingName,
@@ -53,6 +60,7 @@
         WHERE d.building_id = b.id;
     </select>
 
+    <!--根据寝室名称模糊查找寝室-->
     <select id="searchByName" resultType="Dormitory">
         SELECT d.id,
                b.name AS buildingName,
@@ -66,6 +74,7 @@
           AND d.name LIKE CONCAT('%', #{value}, '%');
     </select>
 
+    <!--根据寝室联系电话模糊查找寝室-->
     <select id="searchByTelephone" resultType="Dormitory">
         SELECT d.id,
                b.name AS buildingName,
@@ -79,11 +88,13 @@
           AND d.telephone LIKE CONCAT('%', #{value}, '%');
     </select>
 
+    <!--新增寝室-->
     <insert id="save">
         INSERT INTO dormitory (building_id, name, type, available, telephone)
         VALUES (#{buildingId}, #{name}, #{type}, #{available}, #{telephone});
     </insert>
 
+    <!--更新寝室-->
     <update id="update">
         UPDATE dormitory
         SET name      = #{name},
@@ -91,12 +102,11 @@
         WHERE id = #{id};
     </update>
 
+    <!--根据id查找寝室楼-->
     <select id="findBuildingId" resultType="Dormitory">
         SELECT id,
                name
         FROM dormitory
         WHERE building_id = #{buildingId};
     </select>
-
-
 </mapper>

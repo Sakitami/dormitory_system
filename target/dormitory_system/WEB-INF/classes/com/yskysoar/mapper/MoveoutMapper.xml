@@ -2,6 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yskysoar.mapper.MoveoutMapper">
 
+    <!--在config.xml配置了统一的包名-->
+    <!--展示迁出学生列表-->
     <select id="list" resultType="Moveout">
         SELECT m.id,
                s.name        AS studentName,
@@ -15,6 +17,7 @@
           AND m.dormitory_id = d.id;
     </select>
 
+    <!--根据学号模糊查询迁出学生-->
     <select id="searchByStudentName" resultType="Moveout">
         SELECT m.id,
                s.name        AS studentName,
@@ -29,6 +32,7 @@
           AND s.name LIKE CONCAT('%', #{value}, '%');
     </select>
 
+    <!--根据姓名模糊查询迁出学生-->
     <select id="searchByDormitoryName" resultType="Moveout">
         SELECT m.id,
                s.name        AS studentName,

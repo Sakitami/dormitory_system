@@ -46,7 +46,7 @@
                             <button type="button" class="btn btn-default" data-toggle="modal"
                                     data-target="#addUserModal">
 										<span style="margin-right: 5px" class="" aria-hidden="true">
-											<i class="fa fa-user-plus">添加楼宇信息</i>
+											<i class="fa fa-user-plus">添加寝室楼信息</i>
 											</span>
                             </button>
                         </div>
@@ -105,7 +105,7 @@
                                     <button type="button" class="close" data-dismiss="modal"
                                             aria-hidden="true">x
                                     </button>
-                                    <h4 class="modal-title" id="myModalLabel">添加楼宇信息</h4>
+                                    <h4 class="modal-title" id="myModalLabel">添加寝室楼信息</h4>
                                 </div>
                                 <div class="modal-body">
                                     <form class="form-horizontal" role="form">
@@ -262,7 +262,7 @@
         var introduction = button.data('introduction')
         var modal = $(this)
 
-        modal.find('.modal-title').text('修改楼宇信息')
+        modal.find('.modal-title').text('修改寝室楼信息')
         modal.find('#id').val(id)
         var list = modal.find('.adminId')
         for (var i = 0; i < list.length; i++) {
@@ -279,7 +279,7 @@
         var button = $(event.relatedTarget)
         var id = button.data('id')
         var modal = $(this)
-        modal.find('.modal-title').text('删除楼宇信息')
+        modal.find('.modal-title').text('删除寝室楼信息')
         modal.find('#deleteLabel').text('是否删除ID为  ' + id + ' 的信息')
         modal.find('#id').val(id)
     })

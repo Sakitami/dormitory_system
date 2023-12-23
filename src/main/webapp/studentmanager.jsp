@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>TUST寝室管理系统</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!-- 引入 Bootstrap -->
     <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
@@ -12,7 +13,6 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>TUST寝室管理系统</title>
 </head>
 <body>
 <div class="container-fluid">
