@@ -1,9 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
+    <title>寝室管理员操作页面</title>
     <meta charset="utf-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!-- 引入 Bootstrap -->
@@ -35,7 +36,7 @@
                 <a>欢迎您,${dormitoryAdmin.name}</a>
             </li>
             <li>
-                <a href="/account/logout">安全退出</a>
+                <a href="<c:url value="/account/logout"/>">安全退出</a>
             </li>
         </ul>
     </div>
@@ -57,7 +58,7 @@
 
         </div>
         <!--右边内容-->
-        <iframe style="width: 81%; height: 600px; border: 0;" src="/absent/init"></iframe>
+        <iframe style="width: 81%; height: 600px; border: 0;" src="<c:url value="/absent/init"/>"></iframe>
     </div>
 </div>
 <div class="footer">
